@@ -63,7 +63,6 @@ def plot_embedding(X,name,c=0):
 #Decomposion using PCA
 print("Computing PCA projection")
 t0 = time()
-#X_pca = decomposition.TruncatedSVD(n_components=2).fit_transform(X)
 PCA   = decomposition.TruncatedSVD(n_components=2).fit(X)
 X_pca = PCA.transform(X)
 
@@ -107,21 +106,3 @@ plot_embedding(mcf_tr,name='mcf',c=1.0)
 #plt.rcParams["font.size"] = 24
 #plt.legend(markerscale=3, numpoints=1)
 #plt.show()
-
-
-"""
-#Decomposion using t-SNE
-print("Computing t-SNE embedding")
-tsne = manifold.TSNE(n_components=2, init='pca', random_state=0)
-t0 = time()
-X_tsne = tsne.fit_transform(X)
-
-plot_embedding(X_tsne)
-print("time = %f",time()-t0)
-                              
-#plt.legend()
-plt.show()
-#plt.savefig('t-SNE.png')
-"""
-###############################################################################
-
